@@ -1,10 +1,7 @@
 library(tidyverse); library(sf); library(raster)
 
-# Set variables
-geodb = "ResiRaster.gdb"
-
 # Read LLPG and filter out non residential
-resi <- st_read(dsn = geodb, layer = "llpg") %>% 
+resi <- st_read(dsn = "ResiRaster.gdb", layer = "llpg") %>% 
   filter(primaryclassification == "Residential") %>% 
   filter(secondaryclassification %in% c("Dwellings", "Houses in Multiple Occupation", 
                                         "Residential Institutions", ""))
